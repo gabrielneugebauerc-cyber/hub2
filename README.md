@@ -76,6 +76,8 @@ local ButtonEquipBestNPCs = Tab:CreateButton({
     	end
 }, "EquipBestNPCs")
 
+local SectionEquip = Tab:CreateSection("Auto Equip Best NPCs")
+
 local equipLoopActive = false
 
 local ToggleEquipLoop = Tab:CreateToggle({
@@ -97,6 +99,166 @@ local ToggleEquipLoop = Tab:CreateToggle({
          end
     	end
 }, "AutoEquipLoop")
+
+local SectionBuy = Tab:CreateSection("Auto Buy Plants")
+
+local selectedPlant = "Cactus"
+
+local DropdownPlants = Tab:CreateDropdown({
+	Name = "Select Plant",
+	Description = nil,
+	Options = {"Cactus", "Strawberry", "Pumpkin", "Sunflower", "Dragon Fruit", "Watermelon", "Cocotank", "Carnivorous Plant", "Mr Carrot", "Chompy", "Peagris"},
+	CurrentOption = {"Cactus"},
+	MultipleOptions = false,
+	SpecialType = nil,
+	Callback = function(Option)
+		selectedPlant = Option
+	end
+}, "PlantDropdown")
+
+local ButtonAutoBuyPlants = Tab:CreateButton({
+	Name = "Auto Buy Plants",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	selectedPlant
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "AutoBuyPlants")
+
+local ButtonBuyCactus = Tab:CreateButton({
+	Name = "Buy Cactus",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Cactus"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyCactus")
+
+local ButtonBuyStrawberry = Tab:CreateButton({
+	Name = "Buy Strawberry",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Strawberry"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyStrawberry")
+
+local ButtonBuyPumpkin = Tab:CreateButton({
+	Name = "Buy Pumpkin",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Pumpkin"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyPumpkin")
+
+local ButtonBuySunflower = Tab:CreateButton({
+	Name = "Buy Sunflower",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Sunflower"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuySunflower")
+
+local ButtonBuyDragonFruit = Tab:CreateButton({
+	Name = "Buy Dragon Fruit",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Dragon Fruit"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyDragonFruit")
+
+local ButtonBuyWatermelon = Tab:CreateButton({
+	Name = "Buy Watermelon",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Watermelon"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyWatermelon")
+
+local ButtonBuyCocotank = Tab:CreateButton({
+	Name = "Buy Cocotank",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Cocotank"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyCocotank")
+
+local ButtonBuyCarnivorousPlant = Tab:CreateButton({
+	Name = "Buy Carnivorous Plant",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Carnivorous Plant"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyCarnivorousPlant")
+
+local ButtonBuyMrCarrot = Tab:CreateButton({
+	Name = "Buy Mr Carrot",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Mr Carrot"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyMrCarrot")
+
+local ButtonBuyChompy = Tab:CreateButton({
+	Name = "Buy Chompy",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Chompy"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyChompy")
+
+local ButtonBuyPeagris = Tab:CreateButton({
+	Name = "Buy Peagris",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Peagris"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyPeagris")
 
 local TabFunctions = Window:CreateTab({
 	Name = "Functions",
