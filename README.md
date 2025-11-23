@@ -1,92 +1,122 @@
-local Luna = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-Softworks/Luna-Interface-Suite/refs/heads/main/source.lua", true))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Luna:CreateWindow({
-	Name = "🧟", -- This Is Title Of Your Window
-	Subtitle = nil, -- A Gray Subtitle next To the main title.
-	LogoID = "82795327169782", -- The Asset ID of your logo. Set to nil if you do not have a logo for Luna to use.
-	LoadingEnabled = true, -- Whether to enable the loading animation. Set to false if you do not want the loading screen or have your own custom one.
-	LoadingTitle = "Luna Interface Suite", -- Header for loading screen
-	LoadingSubtitle = "by Hland", -- Subtitle for loading screen
+local Window = Rayfield:CreateWindow({
+   Name = "idk Hub",
+   Icon = nil, -- ou assetId válido em string
+   LoadingTitle = "idk Hub",
+   LoadingSubtitle = "by idk",
+   Theme = "Dark",
+   ToggleUIKeybind = "K",
 
-	ConfigSettings = {
-		RootFolder = nil, -- The Root Folder Is Only If You Have A Hub With Multiple Game Scripts and u may remove it. DO NOT ADD A SLASH
-		ConfigFolder = "Big Hub" -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
-	},
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
 
-	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
-	KeySettings = {
-		Title = "Luna Example Key",
-		Subtitle = "Key System",
-		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
-		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
-		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-		Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
-		SecondAction = {
-			Enabled = true, -- Set to false if you do not want a second action,
-			Type = "Link", -- Link / Discord.
-			Parameter = "" -- If Type is Discord, then put your invite link (DO NOT PUT DISCORD.GG/). Else, put the full link of your key system here.
-		}
-	}
-})
-local Tab = Window:CreateTab({
-	Name = "Tab Example",
-	Icon = "view_in_ar",
-	ImageSource = "Material",
-	ShowTitle = true -- This will determine whether the big header text in the tab will show
-})
-Window:CreateHomeTab({
-	SupportedExecutors = {}, -- A Table Of Executors Your Script Supports. Add strings of the executor names for each executor.
-	DiscordInvite = "1234", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
-	Icon = 2, -- By Default, The Icon Is The Home Icon. If You would like to change it to dashboard, replace the interger with 2
-})
-local Paragraph = Tab:CreateParagraph({
-	Title = "info",
-	Text = "basic script for plants vs anime"
-})
-local Button = Tab:CreateButton({
-	Name = "Sell npc`s",
-	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
-    	Callback = function()
-         -- The function that takes place when the button is pressed
-    	end
-}, "Slider") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-local Dropdown = Tab:CreateDropdown({
-	Name = "Dropdown Example",
-    	Description = nil,
-	Options = {"Option 1","Option 2"},
-    	CurrentOption = {"Option 1"},
-    	MultipleOptions = false,
-    	SpecialType = nil,
-    	Callback = function(Options)
-     	 -- The function that takes place when the selected option is changed
-    	 -- If MultipleOptions is true then The variable (Options) is a table of strings for the current selected options. Else, it is a string of the currentoption
-	end
-}, "Dropdown") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-local Toggle = Tab:CreateToggle({
-	Name = "Toggle Example",
-	Description = nil,
-	CurrentValue = false,
-    	Callback = function(Value)
-       	 -- The function that takes place when the toggle is switched
-       	 -- The variable (Value) is a boolean on whether the toggle is true or false
-    	end
-}, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-local Bind = Tab:CreateBind({
-	Name = "Bind Example",
-	Description = nil,
-	CurrentBind = "Q", -- Check Roblox Studio Docs For KeyCode Names
-	HoldToInteract = false, -- When true, Instead of toggling, You hold to achieve the active state of the Bind
-    	Callback = function(BindState)
-     	 -- The function that takes place when the keybind is pressed
-     	 -- The variable (BindState) is a boolean for whether the Bind is being held or not (HoldToInteract needs to be true) OR it is whether the Bind is active
-    	end,
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = idk hub,
+      FileName = "idk Hub"
+   },
 
-	OnChangedCallback = function(Bind)
-	 -- The function that takes place when the binded key changes
-	 -- The variable (Bind) is a Enum.KeyCode for the new Binded Key
-	end,
-}, "Bind") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-local Label = Tab:CreateLabel({
-	Text = "Label Example",
-	Style = 2 -- Luna Labels Have 3 Styles : A Basic Label, A Green Information Label and A Red Warning Label. Look At The Following Image For More Details
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink",
+      RememberJoins = false
+   },
+
+   KeySystem = false,
+   KeySettings = {
+      Title = "idk Keys",
+      Subtitle = "Key System",
+      Note = "Para conseguir a key, entre no discord da idk",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"idk""}
+   }
 })
+
+local idkHub = Window:CreateTab("idk Hub", 4483362458)
+local Farm = Window:CreateTab("Farm", 4483362458)
+
+local SectionMain = idkHub:CreateSection("Funções Principais")
+
+local function Equipar melhores personagens de anime()
+   local args = {
+      "equipBestNPCs"
+   }
+   game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("EquipBest"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+   
+   end
+end
+
+local ButtonKill = Farm:CreateButton({
+   Name = "Matar Jogador",
+   Callback = MatarJogador
+})
+
+local ToggleFlash = idkHub:CreateToggle({
+   Name = "Flash",
+   CurrentValue = false,
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+         if Value then
+            player.Character.Humanoid.WalkSpeed = 50
+         else
+            player.Character.Humanoid.WalkSpeed = 16
+         end
+      end
+   end
+})
+
+local SliderJump = Farm:CreateSlider({
+   Name = "Pulo (JumpPower)",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "", -- sem '%'
+   CurrentValue = 50,
+   Callback = function(Value)
+      local player = game.Players.LocalPlayer
+      if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+         player.Character.Humanoid.JumpPower = Value
+      end
+   end
+})
+
+local SectionNPC = Farm:CreateSection("NPCs")
+
+local InputNPC = Farm:CreateInput({
+   Name = "Nome do NPC",
+   PlaceholderText = "Digite um NPC...",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+      -- aqui você pode adicionar ação para o texto digitado
+   end
+})
+
+local DropdownNPC = Farm:CreateDropdown({
+   Name = "Selecionar NPC",
+   Options = {"Npc 1", "Npc 2", "Npc 3"},
+   CurrentOption = "Npc 1",
+   Callback = function(Option)
+      -- ação para opção selecionada
+   end
+})
+
+local SectionExtra = Farm:CreateSection("Extras")
+
+local KeybindExample = Farm:CreateKeybind({
+   Name = "Atalho de Teclado",
+   CurrentKeybind = "F",
+   HoldToInteract = false,
+   Callback = function(Key)
+      -- ação ao pressionar a tecla
+   end
+})
+
+local ParagraphCreator = Farm:CreateParagraph({
+   Title = "Criador",
+   Content = "idk Hub by idk"
+})
+
+Rayfield:LoadConfiguration()
