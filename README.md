@@ -102,31 +102,45 @@ local ToggleEquipLoop = Tab:CreateToggle({
 
 local SectionBuy = Tab:CreateSection("Auto Buy Plants")
 
-local selectedPlant = "Cactus"
+local selectedPlants = {"Cactus"}
 
 local DropdownPlants = Tab:CreateDropdown({
-	Name = "Select Plant",
+	Name = "Select Plants",
 	Description = nil,
 	Options = {"Cactus", "Strawberry", "Pumpkin", "Sunflower", "Dragon Fruit", "Watermelon", "Cocotank", "Carnivorous Plant", "Mr Carrot", "Chompy", "Peagris"},
 	CurrentOption = {"Cactus"},
-	MultipleOptions = false,
+	MultipleOptions = true,
 	SpecialType = nil,
-	Callback = function(Option)
-		selectedPlant = Option
+	Callback = function(Options)
+		selectedPlants = Options
 	end
 }, "PlantDropdown")
 
-local ButtonAutoBuyPlants = Tab:CreateButton({
+local buyLoopActive = false
+
+local ToggleAutoBuyPlants = Tab:CreateToggle({
 	Name = "Auto Buy Plants",
 	Description = nil,
-    	Callback = function()
-         local args = {
-         	"purchaseSeed",
-         	selectedPlant
-         }
-         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+	CurrentValue = false,
+    	Callback = function(Value)
+         buyLoopActive = Value
+         if Value then
+         	spawn(function()
+         		while buyLoopActive do
+         			for _, plantName in ipairs(selectedPlants) do
+         				local args = {
+         					"purchaseSeed",
+         					plantName
+         				}
+         				game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+         				wait(0.5)
+         			end
+         			wait(5)
+         		end
+         	end)
+         end
     	end
-}, "AutoBuyPlants")
+}, "AutoBuyPlantsToggle")
 
 local ButtonBuyCactus = Tab:CreateButton({
 	Name = "Buy Cactus",
