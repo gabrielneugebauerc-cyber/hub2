@@ -13,9 +13,9 @@ local Window = Luna:CreateWindow({
 		ConfigFolder = "Big Hub" -- O nome da pasta onde o Luna armazenará as configurações para este script. NÃO ADICIONE UMA BARRA
 	},
 
-	KeySystem = false, -- A partir do Beta 6, o Luna implementou oficialmente um sistema de chaves!
+	KeySystem = true, -- A partir do Beta 6, o Luna implementou oficialmente um sistema de chaves!
 	KeySettings = {
-		Title = "Idk Example Key",
+		Title = "Idk Key System",
 		Subtitle = "Key System",
 		Note = "Just enter discord server to get the key",
 		SaveInRoot = false, -- Habilitar salvará a chave na sua RootFolder (VOCÊ DEVE TER UMA ANTES DE HABILITAR ESTA OPÇÃO)
