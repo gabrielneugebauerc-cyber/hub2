@@ -13,7 +13,7 @@ local Window = Luna:CreateWindow({
 		ConfigFolder = "Big Hub" -- O nome da pasta onde o Luna armazenará as configurações para este script. NÃO ADICIONE UMA BARRA
 	},
 
-	KeySystem = true, -- A partir do Beta 6, o Luna implementou oficialmente um sistema de chaves!
+	KeySystem = false, -- A partir do Beta 6, o Luna implementou oficialmente um sistema de chaves!
 	KeySettings = {
 		Title = "Idk Key System",
 		Subtitle = "Key System",
@@ -22,7 +22,7 @@ local Window = Luna:CreateWindow({
 		SaveKey = true, -- A chave do usuário será salva, mas se você mudar a chave, eles não conseguirão usar seu script
 		Key = {"idkhub"}, -- Lista de chaves que serão aceitas pelo sistema, por favor use um sistema como Pelican ou Luarmor que fornecem strings de chave baseadas no seu HWID, já que colocar uma string simples é muito fácil de contornar
 		SecondAction = {
-			Enabled = true, -- Defina como false se você não quiser uma segunda ação,
+			Enabled = false, -- Defina como false se você não quiser uma segunda ação,
 			Type = "Link", -- Link / Discord.
 			Parameter = "" -- Se Type for Discord, então coloque seu link de convite (NÃO COLOQUE DISCORD.GG/). Caso contrário, coloque o link completo do seu sistema de chaves aqui.
 		}
