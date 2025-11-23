@@ -41,32 +41,13 @@ Window:CreateHomeTab({
 })
 local Paragraph = Tab:CreateParagraph({
 	Title = "info",
-	Text = "idk how to change icon"
+	Text = "basic script for plants vs anime"
 })
 local Button = Tab:CreateButton({
-	Name = "Button Example!",
+	Name = "Sell npc`s",
 	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
     	Callback = function()
          -- The function that takes place when the button is pressed
-    	end
-})
-local ColorPicker = Tab:CreateColorPicker({
-	Name = "Color Picker Example",
-	Color = Color3.fromRGB(86, 171, 128),
-	Flag = "ColorPicker1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-		-- The function that takes place every time the color picker is moved/changed
-		-- The variable (Value) is a Color3fromRGB value based on which color is selected
-	end
-}, "ColorPicker") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-local Slider = Tab:CreateSlider({
-	Name = "Slider Example",
-	Range = {0, 200}, -- The Minimum And Maximum Values Respectively
-	Increment = 5, -- Basically The Changing Value/Rounding Off
-	CurrentValue = 100, -- The Starting Value
-    	Callback = function(Value)
-       	 -- The function that takes place when the slider changes
-       	 -- The variable (Value) is a number which correlates to the value the slider is currently at
     	end
 }, "Slider") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 local Dropdown = Tab:CreateDropdown({
