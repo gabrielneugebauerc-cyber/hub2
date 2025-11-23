@@ -476,6 +476,40 @@ local ToggleAutoBuyPeagris = Tab:CreateToggle({
     	end
 }, "AutoBuyPeagris")
 
+local ButtonBuyEggplant = Tab:CreateButton({
+	Name = "Buy Eggplant",
+	Description = nil,
+    	Callback = function()
+         local args = {
+         	"purchaseSeed",
+         	"Eggplant"
+         }
+         game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    	end
+}, "BuyEggplant")
+
+local eggplantLoopActive = false
+local ToggleAutoBuyEggplant = Tab:CreateToggle({
+	Name = "Auto Buy Eggplant",
+	Description = nil,
+	CurrentValue = false,
+    	Callback = function(Value)
+         eggplantLoopActive = Value
+         if Value then
+         	spawn(function()
+         		while eggplantLoopActive do
+         			local args = {
+         				"purchaseSeed",
+         				"Eggplant"
+         			}
+         			game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Networker"):WaitForChild("leifstout_networker@0.3.0"):WaitForChild("networker"):WaitForChild("_remotes"):WaitForChild("SeedShop"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+         			wait(5)
+         		end
+         	end)
+         end
+    	end
+}, "AutoBuyEggplant")
+
 local TabFunctions = Window:CreateTab({
 	Name = "Functions",
 	Icon = "settings",
