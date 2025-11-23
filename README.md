@@ -13,7 +13,7 @@ local Window = Luna:CreateWindow({
 		ConfigFolder = "Big Hub" -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
 	},
 
-	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
+	KeySystem = true, -- As Of Beta 6, Luna Has officially Implemented A Key System!
 	KeySettings = {
 		Title = "Idk Example Key",
 		Subtitle = "Key System",
